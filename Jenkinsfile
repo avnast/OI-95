@@ -14,9 +14,9 @@ pipeline {
 
   stages {
 
-    stage('hello') {
+    stage('zip') {
       steps {
-        echo Hello!
+        zip zipFile:'oi95.zip', archive:true
       }
     }
 
