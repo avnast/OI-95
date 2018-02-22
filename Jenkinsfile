@@ -6,6 +6,7 @@ pipeline {
     APP='OI-95'
     AWS_ACCESS_KEY_ID=credentials("aws-key-id")
     AWS_SECRET_ACCESS_KEY=credentials("aws-key")
+    AWS_DEFAULT_REGION='us-west-2'
   }
 
   options {
