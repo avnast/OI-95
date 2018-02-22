@@ -20,7 +20,6 @@ pipeline {
     stage('zip') {
       steps {
         zip zipFile:EB_APP+'.zip'
-        sh 'printenv'
         sh 'aws s3 cp $EB_APP.zip s3://oi-86/$EB_APP.zip'
         sh 'aws elasticbeanstalk create-application-version --application-name $EB_APP --version-label $BUILD_TAG --source-bundle S3Bucket=oi-86,S3Key=$EB_APP.zip'
         sh 'aws elasticbeanstalk update-environment --environment-name $EB_ENV --application-name $EB_APP --version-label $BUILD_TAG'
