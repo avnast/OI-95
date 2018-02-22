@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Flask calc</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form name="f1" method="GET" action="/">
+        <table border="0" cellspacing="0" cellpadding="3">
+            <tr>
+                <td align="right">Dec:
+                <td><input name="d" value="{{d}}" />
+            </tr>
+            <tr>
+                <td align="right">Hex:<td>{{h}}
+            </tr>
+            <tr>
+                <td align="right">Bin:<td>{{b}}
+            </tr>
+            <tr>
+                <td><td><input type="submit" value="convert" placeholder="type a decimal number here" />
+            </tr>
+        </table>
+        </form>
+        {% if msg %}
+        <p><strong>{{msg}}</strong></p>
+        {% endif %}
+    </body>
+</html>
