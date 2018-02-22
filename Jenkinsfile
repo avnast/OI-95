@@ -19,7 +19,8 @@ pipeline {
       steps {
         zip zipFile:APP+'.zip'
         sh 'printenv'
-        sh 'aws elasticbeanstalk create-application-version --application-name $APP --version-label $BUILD_TAG --source-bundle $APP.zip'
+        sh 'aws s3 cp $APP.zip s3://oi-86/$APP.zip'
+        sh 'aws elasticbeanstalk create-application-version --application-name $APP --version-label $BUILD_TAG --source-bundle S3Bucket=oi-86,S3Key=$APP.zip'
       }
     }
 
