@@ -41,8 +41,8 @@ pipeline {
   post {
     always {
         deleteDir()
-        sleep 10
-        sh 'aws s3 rm s3://$S3BUCKET/$EB_APP.zip'
+        // sleep 10
+        // sh 'aws s3 rm s3://$S3BUCKET/$EB_APP.zip'
     }
   }
 
