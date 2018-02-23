@@ -11,9 +11,9 @@ def index():
     b = ''
     if d != '':
         try:
-            h = hex(long(d))
-            o = oct(long(d))
-            b = bin(long(d))
+            h = hex(int(d))[2:]
+            o = oct(int(d))[1:]
+            b = bin(int(d))[2:]
         except:
             msg = 'Please enter valid decimal number'
             
