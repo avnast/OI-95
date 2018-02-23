@@ -9,7 +9,6 @@ pipeline {
     AWS_DEFAULT_REGION='us-west-2'
     AWS_ACCESS_KEY_ID=credentials("aws-key-id")
     AWS_SECRET_ACCESS_KEY=credentials("aws-key")
-    ZIP_GLOB='src Dockerrun.aws.json'
   }
 
   options {
@@ -21,7 +20,7 @@ pipeline {
 
     stage('deploy') {
       steps {
-        zip zipFile:EB_APP+'.zip', glob:ZIP_GLOB
+        zip zipFile:EB_APP+'.zip'
         // create bucket if it doesn't exist
         script {
             try {
@@ -41,8 +40,6 @@ pipeline {
   post {
     always {
         deleteDir()
-        // sleep 10
-        // sh 'aws s3 rm s3://$S3BUCKET/$EB_APP.zip'
     }
   }
 
