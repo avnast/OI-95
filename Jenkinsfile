@@ -26,8 +26,8 @@ pipeline {
         script {
             try {
                 sh 'aws s3 mb s3://$S3BUCKET'
-            } catch (err) {
-                echo err
+            } catch (e) {
+                echo e.getMessage()
             }
         }
         sh 'aws s3 cp $EB_APP.zip s3://$S3BUCKET/$EB_APP.zip'
